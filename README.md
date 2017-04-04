@@ -3,6 +3,7 @@ General Observation Pattern Component
 
 [![Build Status](https://travis-ci.org/subcosm/observatory.svg?branch=master)](https://travis-ci.org/subcosm/observatory)
 [![Coverage Status](https://coveralls.io/repos/github/subcosm/observatory/badge.svg?branch=master)](https://coveralls.io/github/subcosm/observatory?branch=master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/24e183e4-e13d-4128-a844-499110a00718/mini.png)](https://insight.sensiolabs.com/projects/24e183e4-e13d-4128-a844-499110a00718)
 
 
 ### What is observatory?
