@@ -1,6 +1,8 @@
 # observatory
 General Observation Pattern Component
 
+[![Build Status](https://travis-ci.org/subcosm/observatory.svg?branch=master)](https://travis-ci.org/subcosm/observatory)
+[![Coverage Status](https://coveralls.io/repos/github/subcosm/observatory/badge.svg?branch=master)](https://coveralls.io/github/subcosm/observatory?branch=master)
 
 
 ### What is observatory?
