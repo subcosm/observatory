@@ -4,7 +4,8 @@ General Observation Pattern Component
 [![Build Status](https://travis-ci.org/subcosm/observatory.svg?branch=master)](https://travis-ci.org/subcosm/observatory)
 [![codecov](https://codecov.io/gh/subcosm/observatory/branch/master/graph/badge.svg)](https://codecov.io/gh/subcosm/observatory)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/24e183e4-e13d-4128-a844-499110a00718/mini.png)](https://insight.sensiolabs.com/projects/24e183e4-e13d-4128-a844-499110a00718)
-![Code Climate](https://codeclimate.com/github/subcosm/observatory.png)
+[![Code Climate](https://codeclimate.com/github/subcosm/observatory.png)](https://codeclimate.com/github/subcosm/observatory)
+[![Gittip](http://img.shields.io/gittip/subcosm.svg)](https://gittip.com/subcosm/)
 
 ### What is observatory?
 
