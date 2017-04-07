@@ -16,6 +16,7 @@ use Subcosm\Observatory\ObservableTrait;
 use PHPUnit\Framework\TestCase;
 use Subcosm\Observatory\ObservationContainerInterface;
 use Subcosm\Observatory\ObserverInterface;
+use Subcosm\Observatory\ObserverQueue;
 
 class ObservableTraitTest extends TestCase
 {
@@ -66,6 +67,24 @@ class ObservableTraitTest extends TestCase
 
     /**
      * @test
+     * @expectedException \Subcosm\Observatory\Exception\ObservatoryException
+     */
+    public function attachToQueueFailedTest()
+    {
+        $observer = new class implements ObserverInterface {
+            public function update(ObservationContainerInterface $container): void
+            {
+
+            }
+        };
+
+        $queue = new ObserverQueue();
+        $queue->attach($observer);
+        $queue->attach($observer);
+    }
+
+    /**
+     * @test
      */
     public function attachDetachTest()
     {
@@ -90,6 +109,31 @@ class ObservableTraitTest extends TestCase
     /**
      * @test
      */
+    public function queueAttachDetachTest()
+    {
+        $observer = new class implements ObserverInterface {
+            public function update(ObservationContainerInterface $container): void
+            {
+
+            }
+        };
+
+        $queue = new ObserverQueue();
+
+        $this->assertEquals(0, count($queue));
+
+        $queue->attach($observer);
+
+        $this->assertEquals(1, count($queue));
+
+        $queue->detach($observer);
+
+        $this->assertEquals(0, count($queue));
+    }
+
+    /**
+     * @test
+     */
     public function notifyTest()
     {
         $observer = new class implements ObserverInterface {
@@ -104,5 +148,24 @@ class ObservableTraitTest extends TestCase
         $container = $this->instance->doNotify();
 
         $this->assertEquals('doNotify', $container->message);
+
+        $alternateObserver = new class implements ObserverInterface {
+            public function update(ObservationContainerInterface $container): void
+            {
+                $container->message = 'doNotify';
+            }
+        };
+
+        $queue = new ObserverQueue();
+
+        $queue->attach($alternateObserver);
+
+        $container = new class ($this, 'doNotify') extends AbstractObservationContainer {
+
+        };
+
+        $result = $queue($container);
+
+        $this->assertEquals('doNotify', $result->message);
     }
 }
